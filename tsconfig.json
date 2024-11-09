@@ -1,0 +1,16 @@
+/**
+YOU SHOULD NOT TOUCH THIS FILE.
+
+THIS FILE IS REQUIRED FOR SHADCN CLI TO WORK.
+tsconfig.base.json IS FOR THE ROOT TYPESCRIPT CONFIGURATION. 
+**/
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@org/shared": ["libs/shared/src/index.ts"],
+        "@org/shared/*": ["libs/shared/src/*"]
+      }
+    }
+  }
+  
