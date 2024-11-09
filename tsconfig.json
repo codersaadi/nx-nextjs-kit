@@ -2,7 +2,8 @@
 YOU SHOULD NOT TOUCH THIS FILE.
 
 THIS FILE IS REQUIRED FOR SHADCN CLI TO WORK.
-tsconfig.base.json IS FOR THE ROOT TYPESCRIPT CONFIGURATION. 
+tsconfig.base.json IS FOR THE ROOT TYPESCRIPT CONFIGURATION.
+You can extend the tsconfig.base.jso with it , if neeeded 
 **/
 {
     "compilerOptions": {

@@ -15,9 +15,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@stack/shared": ["libs/shared/src/index.ts"],
-      "@stack/shared/server": ["libs/shared/src/server.ts"]
+      "@/apps/web/*" : ["apps/web/src/*"],
+      "@org/shared/server": ["libs/shared/src/server.ts"],
+      "@org/shared" : ["libs/shared/src/index.ts"],
+      "@org/shared/*" : ["libs/shared/src/*"],
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": ["node_modules", "tmp"],
+  "extends" : "./tsconfig.json"
 }
