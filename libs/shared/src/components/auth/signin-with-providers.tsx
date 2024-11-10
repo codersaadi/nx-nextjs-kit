@@ -60,9 +60,7 @@ export default function SigninWithProviders({
           >
             <provider.Icon size={24} />
             {withDescription && (
-              <span className="text-sm font-medium">
-                Continue with {provider.name}
-              </span>
+              <span className="text-sm ">Continue with {provider.name}</span>
             )}
           </Button>
         ))}

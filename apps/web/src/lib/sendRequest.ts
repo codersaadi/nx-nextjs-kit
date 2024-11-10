@@ -1,5 +1,5 @@
 import type { EmailConfig } from 'next-auth/providers';
-
+import { logoUrl } from '../constants';
 interface Theme {
   brandColor?: string;
   buttonText?: string;
@@ -51,7 +51,7 @@ function generateHtml(params: { url: string; host: string; theme: Theme }) {
     buttonText: theme.buttonText || '#ffffff',
   };
 
-  const logoImgUrl = theme.logoUrl || ''; // Placeholder logo URL
+  const logoImgUrl = theme.logoUrl || logoUrl; // Placeholder logo URL
 
   return `
 <!DOCTYPE html>

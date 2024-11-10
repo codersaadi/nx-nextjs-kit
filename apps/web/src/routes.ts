@@ -16,6 +16,7 @@ export const authRoutes: string[] = [
   '/auth/email_verify',
   '/auth/verify-request',
   '/auth-error',
+  '/auth/signin-email',
 ];
 /**
  * Routes start with the api are used for api auth purpose
