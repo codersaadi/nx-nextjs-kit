@@ -1,10 +1,12 @@
 import * as z from 'zod';
 const EmailAddressError = 'Please enter a valid email address';
 const PasswordError = 'Password is too short';
+const emailSchema = z.string().email({
+  message: EmailAddressError,
+});
+
 export const ForgotPasswordSchema = z.object({
-  email: z.string().email({
-    message: EmailAddressError,
-  }),
+  email: emailSchema,
 });
 
 export const ResetPasswordSchema = z.object({
@@ -17,9 +19,7 @@ export const ResetPasswordSchema = z.object({
 });
 
 export const LoginSchema = z.object({
-  email: z.string().email({
-    message: EmailAddressError,
-  }),
+  email: emailSchema,
   password: z.string().min(1, {
     message: PasswordError,
   }),
@@ -27,15 +27,11 @@ export const LoginSchema = z.object({
 
 export const SignupSchema = z.object({
   name: z.string(),
-  email: z.string().email({
-    message: EmailAddressError,
-  }),
+  email: emailSchema,
   password: z.string().min(7, { message: PasswordError }),
 });
 export const MagicSignInSchema = z.object({
-  email: z.string().email({
-    message: EmailAddressError,
-  }),
+  email: emailSchema,
 });
 export type MagicSignInType = z.infer<typeof MagicSignInSchema>;
 export type ForgotPasswordSchemaType = z.infer<typeof ForgotPasswordSchema>;
