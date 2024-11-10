@@ -1,15 +1,10 @@
+'use client';
 import { useMemo } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '../../lib/utils';
 import { GithubIcon, GoogleIcon } from './auth-icons';
-const providersUsed = [
-  'credentials',
-  'github',
-  'google',
-  'facebook',
-  'email',
-] as const;
-export type AvailableProviders = (typeof providersUsed)[number];
+
+export type AvailableProviders = 'credentials' | 'github' | 'google' | 'email';
 
 interface Provider {
   name: string;

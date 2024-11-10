@@ -1,6 +1,9 @@
 'use client';
 import { useFormAction } from '../../hooks/use-form-action';
-import { ForgotPasswordSchema } from '../../schema/auth.schema';
+import {
+  ForgotPasswordSchema,
+  ForgotPasswordSchemaType,
+} from '../../schema/auth.schema';
 import { MessageResponse } from '../../types';
 import { Form, FormControl, FormField, FormItem, FormLabel } from '../ui/form';
 import { Input } from '../ui/input';
@@ -10,7 +13,7 @@ import { LoaderButton } from '../loader-button';
 export default function ForgotPasswordForm({
   onSubmitAction,
 }: {
-  onSubmitAction: () => Promise<MessageResponse>;
+  onSubmitAction: (data: ForgotPasswordSchemaType) => Promise<MessageResponse>;
 }) {
   const { form, isPending, onSubmit, message } = useFormAction({
     schema: ForgotPasswordSchema,

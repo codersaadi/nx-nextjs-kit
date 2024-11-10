@@ -1,0 +1,21 @@
+{
+  "search.exclude": {
+    "**/node_modules": true, // Exclude node_modules from search
+    "**/bower_components": true, // In case you use bower
+    "**/.next": true, // Exclude .next from search
+    "**/.git": true // Exclude git directory from search
+  },
+  "files.watcherExclude": {
+    "**/node_modules/**": true, // Exclude node_modules from file watcher
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "env-*": true,
+    "**/.next/**": true // Exclude .next from file watcher
+  },
+  "files.exclude": {
+    "**/.git": true, // Exclude .git folder from file explorer
+    "**/.DS_Store": true, // Exclude .DS_Store files
+    "env*": true,
+    "**/.next": true // Exclude .next from file explorer
+  }
+}

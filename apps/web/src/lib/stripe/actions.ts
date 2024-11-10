@@ -3,7 +3,7 @@ import { redirect } from 'next/navigation';
 import { z } from 'zod';
 import { userRepository } from '../../data/users';
 import { PublicError } from '../errors';
-import { authenticatedAction } from '../safe-action';
+import { authenticatedAction } from '../action-guard';
 import { stripe } from './stripe';
 
 const schema = z.object({

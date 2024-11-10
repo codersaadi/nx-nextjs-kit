@@ -3,7 +3,13 @@ import { DrizzleAdapter } from '@auth/drizzle-adapter';
 import { saveProfile } from './data/user-profile/user-profile';
 import { userRepository } from './data/users/users';
 import { db } from './lib/db/init';
-import { User, accounts, sessions, users, verificationTokens } from './lib/db/schema';
+import {
+  User,
+  accounts,
+  sessions,
+  users,
+  verificationTokens,
+} from './lib/db/schema';
 import bcrypt from 'bcryptjs';
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
@@ -31,22 +37,22 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       const email = user.email || undefined;
       await userRepository.verifyUserEmail(user.id, email);
     },
-    signIn: async ({ user, account, profile, isNewUser }) => {
-      if (!user.id) return;
-      const { id: distinctId, ...properties } = user;
-      //   const posthog = PostHogClient()
-      //   posthog.identify({ distinctId, properties })
-      //   posthog.capture({
-      //     distinctId,
-      //     event: 'userSignedIn',
-      //     timestamp: new Date(),
-      //     properties: {
-      //       isNewUser,
-      //       profile,
-      //       account,
-      //     },
-      //   })
-    },
+    // signIn: async ({ user, account, profile, isNewUser }) => {
+    //   if (!user.id) return;
+    //   const { id: distinctId, ...properties } = user;
+    //   //   const posthog = PostHogClient()
+    //   //   posthog.identify({ distinctId, properties })
+    //   //   posthog.capture({
+    //   //     distinctId,
+    //   //     event: 'userSignedIn',
+    //   //     timestamp: new Date(),
+    //   //     properties: {
+    //   //       isNewUser,
+    //   //       profile,
+    //   //       account,
+    //   //     },
+    //   //   })
+    // },
     createUser: async ({ user }) => {
       if (!user.id) return;
       await saveProfile(user.id, {

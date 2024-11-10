@@ -1,6 +1,6 @@
 'use server';
 import { createProfileInputSchema } from './userprofile.schema';
-import { authenticatedAction } from '../../lib/safe-action';
+import { authenticatedAction } from '../../lib/action-guard';
 import { revalidatePath } from 'next/cache';
 import { getProfile, saveProfile } from './user-profile';
 
