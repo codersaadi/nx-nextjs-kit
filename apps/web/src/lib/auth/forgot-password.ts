@@ -1,7 +1,11 @@
 'use server';
 
-import { createResetPasswordToken, deleteResetTokenByEmail, getResetPasswordTokenByToken } from '../../data/reset-token/reset-token';
-import { userRepository } from '../../data/users/users';
+import {
+  createResetPasswordToken,
+  deleteResetTokenByEmail,
+  getResetPasswordTokenByToken,
+} from '@web/data/reset-token/reset-token';
+import { userRepository } from '@web/data/users/users';
 import {
   ForgotPasswordSchema,
   type ForgotPasswordSchemaType,

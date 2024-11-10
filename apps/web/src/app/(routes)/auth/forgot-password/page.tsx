@@ -1,4 +1,4 @@
-import { forgotPasswordAction } from '../../../../lib/auth/forgot-password';
+import { forgotPasswordAction } from '@web/lib/auth/forgot-password';
 import { ForgotPasswordForm } from '@org/shared';
 import React from 'react';
 

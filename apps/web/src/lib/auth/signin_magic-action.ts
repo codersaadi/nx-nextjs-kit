@@ -1,5 +1,5 @@
 'use server';
-import { signIn } from '../../auth';
+import { signIn } from '@web/auth';
 import { MagicSignInType } from '@org/shared/schema/auth.schema';
 import {
   type RedirectError,

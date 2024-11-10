@@ -1,5 +1,5 @@
-import { db } from '../../lib/db/init';
-import { newsletters } from '../../lib/db/schema';
+import { db } from '@web/lib/db/init';
+import { newsletters } from '@web/lib/db/schema';
 
 /**
  * this inserts an email record into our database using drizzle-orm

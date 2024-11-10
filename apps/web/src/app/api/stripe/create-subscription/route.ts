@@ -1,9 +1,10 @@
-// import {
-
-// } from '@web/lib/db/repositories/subscription' // Adjust the import path as needed
-import { createSubscription, getSubscription, updateSubscription } from '../../../../data/subscription';
-import { getCurrentUser } from '../../../../lib/get-user';
-import { stripe } from '../../../../lib/stripe/stripe';
+import {
+  createSubscription,
+  getSubscription,
+  updateSubscription,
+} from '@web/data/subscription';
+import { getCurrentUser } from '@web/lib/get-user';
+import { stripe } from '@web/lib/stripe/stripe';
 import { type NextRequest, NextResponse } from 'next/server';
 import type Stripe from 'stripe';
 import { z } from 'zod';

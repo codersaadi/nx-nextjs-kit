@@ -1,4 +1,4 @@
-import AuthFlexLayout from '../../../template/auth/AuthFlexLayout';
+import AuthFlexLayout from '@web/template/auth/AuthFlexLayout';
 import React from 'react';
 
 export default function AuthLayout({

@@ -1,4 +1,4 @@
-import { signinMagic } from '../../../../../lib/auth/signin_magic-action';
+import { signinMagic } from '@web/lib/auth/signin_magic-action';
 import { MagicSignInForm } from '@org/shared';
 import React from 'react';
 

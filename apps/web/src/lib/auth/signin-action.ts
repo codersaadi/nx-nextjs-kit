@@ -1,13 +1,13 @@
 'use server';
 import { AuthError } from 'next-auth';
 
-import { signOut } from '../../auth';
-import { signIn } from '../../auth';
+import { signOut } from '@web/auth';
+import { signIn } from '@web/auth';
 
-import { userRepository } from '../../data/users/users';
+import { userRepository } from '@web/data/users/users';
 import { MessageResponse } from '@org/shared/types';
 import { LoginSchema, LoginSchemaType } from '@org/shared/schema/auth.schema';
-import { createVerificationToken } from '../../data/verification-token/verification-token';
+import { createVerificationToken } from '@web/data/verification-token/verification-token';
 export { signOut };
 // import { sendEmailVerification } from "./common";
 

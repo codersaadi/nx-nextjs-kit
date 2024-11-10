@@ -1,4 +1,4 @@
-import { signIn } from '../../../../auth';
+import { signIn } from '@web/auth';
 import SigninWithProviders, {
   AvailableProviders,
 } from '@org/shared/components/auth/signin-with-providers';

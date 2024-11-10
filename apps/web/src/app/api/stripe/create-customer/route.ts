@@ -1,7 +1,7 @@
-import { userRepository } from '../../../../data/users/users';
-import { getCurrentUser } from '../../../../lib/get-user';
-import { stripe } from '../../../../lib/stripe/stripe';
-import { createStripeCustomerSchema } from '../../../../lib/stripe/stripe.schema';
+import { userRepository } from '@web/data/users/users';
+import { getCurrentUser } from '@web/lib/get-user';
+import { stripe } from '@web/lib/stripe/stripe';
+import { createStripeCustomerSchema } from '@web/lib/stripe/stripe.schema';
 import { NextResponse } from 'next/server';
 
 export async function POST() {

@@ -1,5 +1,5 @@
-import { subscriptionCreated } from '../../../data/subscription';
-import { stripe } from '../../../lib/stripe/stripe';
+import { subscriptionCreated } from '@web/data/subscription';
+import { stripe } from '@web/lib/stripe/stripe';
 import { headers } from 'next/headers';
 import { type NextRequest, NextResponse } from 'next/server';
 import type Stripe from 'stripe';

@@ -2,9 +2,9 @@
 import { authEmail } from './auth-email';
 import { hashMyPassword } from './common';
 import { MessageResponse } from '@org/shared/types';
-import { userRepository } from '../../data/users/users';
-import { saveProfile } from '../../data/user-profile/user-profile';
-import { createVerificationToken } from '../../data/verification-token/verification-token';
+import { userRepository } from '@web/data/users/users';
+import { saveProfile } from '@web/data/user-profile/user-profile';
+import { createVerificationToken } from '@web/data/verification-token/verification-token';
 import { SignupSchema, SignupSchemaType } from '@org/shared/schema/auth.schema';
 
 export async function signUpAction(

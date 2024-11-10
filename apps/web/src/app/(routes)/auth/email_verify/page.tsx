@@ -1,4 +1,4 @@
-import { emailVerifyAction } from '../../../../lib/auth/emailVerifyAction';
+import { emailVerifyAction } from '@web/lib/auth/emailVerifyAction';
 import { EmailVerifyForm } from '@org/shared';
 import React from 'react';
 interface EmailVerifyProps {

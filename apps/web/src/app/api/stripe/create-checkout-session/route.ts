@@ -1,6 +1,6 @@
-import { getCurrentUser } from '../../../../lib/get-user';
-import { stripe } from '../../../../lib/stripe/stripe';
-import { createCheckoutSessionSchema } from '../../../../lib/stripe/stripe.schema';
+import { getCurrentUser } from '@web/lib/get-user';
+import { stripe } from '@web/lib/stripe/stripe';
+import { createCheckoutSessionSchema } from '@web/lib/stripe/stripe.schema';
 import { type NextRequest, NextResponse } from 'next/server';
 import type { z } from 'zod';
 

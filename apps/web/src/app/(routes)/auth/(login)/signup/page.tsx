@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { SignUpForm } from '@org/shared';
 
 import React from 'react';
-import { signUpAction } from '../../../../../lib/auth/signup-action';
+import { signUpAction } from '@web/lib/auth/signup-action';
 
 export default function page() {
   return <SignUpForm onSubmitAction={signUpAction} />;

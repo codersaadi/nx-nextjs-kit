@@ -15,10 +15,10 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@/web/*": ["apps/web/src/*"],
       "@org/shared": ["libs/shared/src/index.ts"],
       "@org/shared/*": ["libs/shared/src/*"],
-      "@org/shared/server": ["libs/shared/src/server.ts"]
+      "@org/shared/server": ["libs/shared/src/server.ts"],
+      "@web/*": ["apps/web/src/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

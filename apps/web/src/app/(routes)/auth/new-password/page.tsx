@@ -1,4 +1,4 @@
-import { resetPasswordAction } from '../../../../lib/auth/forgot-password';
+import { resetPasswordAction } from '@web/lib/auth/forgot-password';
 import { ResetPasswordForm } from '@org/shared';
 import { ResetPasswordSchemaType } from '@org/shared/schema/auth.schema';
 import React from 'react';
