@@ -17,12 +17,3 @@ export default {
     }),
   ],
 } satisfies NextAuthConfig;
-
-const providersUsed = [
-  'credentials',
-  'github',
-  'google',
-  'facebook',
-  'email',
-] as const;
-export type AvailableProviders = (typeof providersUsed)[number];

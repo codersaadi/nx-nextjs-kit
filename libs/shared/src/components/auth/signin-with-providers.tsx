@@ -2,6 +2,14 @@ import { useMemo } from 'react';
 import { Button } from '../ui/button';
 import { cn } from '../../lib/utils';
 import { GithubIcon, GoogleIcon } from './auth-icons';
+const providersUsed = [
+  'credentials',
+  'github',
+  'google',
+  'facebook',
+  'email',
+] as const;
+export type AvailableProviders = (typeof providersUsed)[number];
 
 interface Provider {
   name: string;
@@ -11,12 +19,12 @@ interface Provider {
   }>;
 }
 
-export default function SigninWithProviders<T extends string[]>({
+export default function SigninWithProviders({
   action,
   orPosition,
   withDescription,
 }: {
-  action: (provider: T[number]) => Promise<void>;
+  action: (provider: AvailableProviders) => Promise<void>;
   withDescription?: boolean;
   orPosition?: 'top' | 'bottom';
 }) {
@@ -47,7 +55,7 @@ export default function SigninWithProviders<T extends string[]>({
         {providers.map((provider) => (
           <Button
             key={provider.name}
-            onClick={() => action(provider.name as T[number])}
+            onClick={() => action(provider.name as AvailableProviders)}
             className={cn(
               '',
               withDescription
