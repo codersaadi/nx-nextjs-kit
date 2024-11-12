@@ -5,8 +5,9 @@ import {
   type RedirectError,
   isRedirectError,
 } from 'next/dist/client/components/redirect';
+import env from '@org/shared/env';
 
-const HOST = process.env.HOST || 'http://localhost:3000';
+const HOST = env.NEXT_PUBLIC_HOST || 'http://localhost:3000';
 export async function signinMagic(
   data: MagicSignInType
   // captchaOptions: CaptchaActionOptions,

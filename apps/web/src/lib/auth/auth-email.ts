@@ -1,3 +1,4 @@
+import env from '@org/shared/env';
 import { resend } from '../email-send';
 
 type SendAuthEmailType = 'reset' | 'verify' | 'confirmation';
@@ -14,8 +15,8 @@ export const authEmail = async (
     react: VerifyEmailTemplate({
       link:
         type === 'verify'
-          ? `${process.env.HOST}/auth/email_verify?token=${token}`
-          : `${process.env.HOST}/auth/new-password?token=${token}`,
+          ? `${env.NEXT_PUBLIC_HOST}/auth/email_verify?token=${token}`
+          : `${env.NEXT_PUBLIC_HOST}/auth/new-password?token=${token}`,
     }),
   });
   return { data, error };

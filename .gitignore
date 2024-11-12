@@ -48,3 +48,4 @@ vite.config.*.timestamp*
 
 .env.*
 .env
+apps/web/.contentlayer

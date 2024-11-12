@@ -17,6 +17,7 @@ import Resend from 'next-auth/providers/resend';
 import authConfig from './auth.config';
 
 import { sendVerificationRequest } from './lib/sendRequest';
+import env from '@org/shared/env';
 const adapter = DrizzleAdapter(db, {
   accountsTable: accounts,
   sessionsTable: sessions,
@@ -138,7 +139,7 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       },
     }),
     Resend({
-      apiKey: process.env.RESEND_KEY,
+      apiKey: env.RESEND_KEY,
       from: 'Starter <no-reply@go.codingstack.site>',
       sendVerificationRequest: sendVerificationRequest,
     }),

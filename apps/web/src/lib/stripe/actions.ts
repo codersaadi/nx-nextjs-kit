@@ -5,11 +5,12 @@ import { userRepository } from '@web/data/users';
 import { PublicError } from '../errors';
 import { authenticatedAction } from '../action-guard';
 import { stripe } from './stripe';
+import env from '@org/shared/env';
 
 const schema = z.object({
   priceId: z.union([
-    z.literal(process.env.NEXT_PUBLIC_PRICE_ID_BASIC),
-    z.literal(process.env.NEXT_PUBLIC_PRICE_ID_PREMIUM),
+    z.literal(env.NEXT_PUBLIC_PRICE_ID_BASIC),
+    z.literal(env.NEXT_PUBLIC_PRICE_ID_PREMIUM),
   ]),
 });
 
@@ -30,8 +31,8 @@ export const generateStripeSessionAction = authenticatedAction
     }
 
     const stripeSession = await stripe.checkout.sessions.create({
-      success_url: `${process.env.HOST}/success`,
-      cancel_url: `${process.env.HOST}/cancel`,
+      success_url: `${env.NEXT_PUBLIC_HOST}/success`,
+      cancel_url: `${env.NEXT_PUBLIC_HOST}/cancel`,
       payment_method_types: ['card'],
       customer_email: email ? email : undefined,
       mode: 'subscription',

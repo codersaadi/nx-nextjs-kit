@@ -84,7 +84,6 @@ const validateRole = (input: RolesArrayGuardSchema, user: SessionUser) => {
   }
   return null; // If not, return null (unauthorized).
 };
-
 // Separate validation function specifically for UI rendering purposes.
 // This is used when we need to validate the user's role without applying rate limits.
 // It's ideal for rendering protected UI elements based on role (e.g., hiding/showing buttons or content).

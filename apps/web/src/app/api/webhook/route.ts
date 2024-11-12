@@ -1,3 +1,4 @@
+import env from '@org/shared/env';
 import { subscriptionCreated } from '@web/data/subscription';
 import { stripe } from '@web/lib/stripe/stripe';
 import { headers } from 'next/headers';
@@ -20,7 +21,7 @@ export async function POST(req: NextRequest) {
   const body = await req.text();
   const sig = headers().get('Stripe-Signature');
   const webhookSecret =
-    process.env.STRIPE_WEBHOOK_SECRET_LIVE ?? process.env.STRIPE_WEBHOOK_SECRET;
+    env.STRIPE_WEBHOOK_SECRET_LIVE ?? env.STRIPE_WEBHOOK_SECRET;
   try {
     if (!sig || !webhookSecret) {
       console.log(

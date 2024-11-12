@@ -17,9 +17,12 @@
     "paths": {
       "@org/shared": ["libs/shared/src/index.ts"],
       "@org/shared/*": ["libs/shared/src/*"],
+      "@org/shared/env": ["libs/shared/src/env.ts"],
       "@org/shared/server": ["libs/shared/src/server.ts"],
-      "@web/*": ["apps/web/src/*"]
+      "@web/*": ["apps/web/src/*"],
+      "contentlayer/generated": ["./apps/web/.contentlayer/generated"]
     }
   },
+  "include": ["./apps/web/contentlayer.config.ts"],
   "exclude": ["node_modules", "tmp"]
 }
