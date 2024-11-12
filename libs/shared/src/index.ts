@@ -6,3 +6,4 @@ export * from './components/animations';
 export * from './components/action-dialog';
 export * from './components/date-range-picker';
 export * from './components/table';
+export * from './components/shiny-card';
