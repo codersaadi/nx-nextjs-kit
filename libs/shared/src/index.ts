@@ -3,3 +3,5 @@
 export * from './components/theme-switch';
 export * from './components/auth';
 export * from './components/animations';
+export * from './components/action-dialog';
+export * from './components/date-range-picker';
