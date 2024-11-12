@@ -9,26 +9,29 @@ import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 
 import {
-  Button,
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  Input,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
+} from '../../ui/dropdown-menu';
+
+import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover';
+
+import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
-  Separator,
-} from '../..';
+} from '../../ui/select';
 
-import { useDebounce } from '@org/shared/hooks/use-debounce';
-import type { DataTableFilterOption } from '@org/shared/types/table';
+import { Button } from '../../ui/button';
+import { Separator } from '../../ui/separator';
+import { Input } from '../../ui/input';
+
+import { useDebounce } from '@org/shared/hooks/useDebounce';
+import type { DataTableFilterOption } from '@org/shared/types';
 import { DataTableFacetedFilter } from '../facets-filter';
 import { type DataTableConfig, dataTableConfig } from '../table-config';
 

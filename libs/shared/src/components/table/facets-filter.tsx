@@ -1,21 +1,18 @@
 import type { Column } from '@tanstack/react-table';
 import { CheckIcon, CirclePlus } from 'lucide-react';
-
 import {
-  Badge,
-  Button,
-  Command,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
+  Command,
   CommandList,
   CommandSeparator,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-  Separator,
-} from '@org/shared/index';
+} from '../ui/command';
+import { Badge } from '../ui/badge';
+import { Button } from '../ui/button';
+import { Separator } from '../ui/separator';
+import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover';
 import { cn } from '@org/shared/lib/utils';
 import type { Option } from '@org/shared/types';
 

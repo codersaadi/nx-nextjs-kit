@@ -7,7 +7,7 @@ import * as React from 'react';
 
 import { DataTableViewOptions } from '../views-table';
 
-import { Button } from '@org/shared/components';
+import { Button } from '../../ui/button';
 import { cn } from '@org/shared/lib/utils';
 import type {
   DataTableFilterField,

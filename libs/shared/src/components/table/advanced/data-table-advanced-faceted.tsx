@@ -11,7 +11,7 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '../..';
+} from '../../ui/command';
 
 interface DataTableAdvancedFacetedFilterProps<TData, TValue> {
   column?: Column<TData, TValue>;

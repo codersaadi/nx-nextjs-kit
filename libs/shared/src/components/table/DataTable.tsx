@@ -9,7 +9,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '..';
+} from '../ui/table';
 
 interface DataTableProps<TData> extends React.HTMLAttributes<HTMLDivElement> {
   /**

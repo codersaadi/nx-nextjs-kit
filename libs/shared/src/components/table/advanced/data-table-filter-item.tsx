@@ -3,22 +3,23 @@ import { TrashIcon } from 'lucide-react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 
-import { useDebounce } from '@org/shared/hooks/use-debounce';
+import { useDebounce } from '@org/shared/hooks/useDebounce';
 import { cn } from '@org/shared/lib/utils';
 import type { DataTableFilterOption } from '@org/shared/types';
+
+import { Button } from '../../ui/button';
+
+import { Input } from '../../ui/input';
+import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover';
+
 import {
-  Button,
-  Input,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../..';
+} from '../../ui/select';
 import { dataTableConfig } from '../table-config';
 import { DataTableAdvancedFacetedFilter } from './data-table-advanced-faceted';
 

@@ -7,9 +7,7 @@ import {
   TextIcon,
 } from 'lucide-react';
 import * as React from 'react';
-
 import {
-  Button,
   Command,
   CommandEmpty,
   CommandGroup,
@@ -17,10 +15,11 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from '@org/shared/index';
+} from '../../ui/command';
+
+import { Button } from '../../ui/button';
+
+import { Popover, PopoverContent, PopoverTrigger } from '../../ui/popover';
 import type { DataTableFilterOption } from '@org/shared/types';
 
 interface DataTableFilterComboboxProps<TData> {

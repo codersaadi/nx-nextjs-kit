@@ -1,12 +1,12 @@
+import { Skeleton } from '../ui/skeleton';
 import {
-  Skeleton,
   Table,
   TableBody,
   TableCell,
   TableHead,
   TableHeader,
   TableRow,
-} from '@org/shared/index';
+} from '../ui/table';
 import { cn } from '@org/shared/lib/utils';
 
 interface DataTableSkeletonProps extends React.HTMLAttributes<HTMLDivElement> {

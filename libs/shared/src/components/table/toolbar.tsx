@@ -3,8 +3,8 @@
 import type { Table } from '@tanstack/react-table';
 import { DeleteIcon as Cross2Icon } from 'lucide-react';
 import * as React from 'react';
-
-import { Button, Input } from '../ui/button';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
 import { cn } from '@org/shared/lib/utils';
 import type { DataTableFilterField } from '@org/shared/types';
 import { DataTableFacetedFilter } from './facets-filter';
