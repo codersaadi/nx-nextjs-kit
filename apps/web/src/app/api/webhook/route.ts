@@ -17,11 +17,8 @@ const stripeWebhookEvents = new Set([
 ]);
 
 export async function POST(req: NextRequest) {
-  // const stripeEvent = await stripeWebHook(req);
-  // return stripeEvent;
-  return NextResponse.json({
-    message: 'Webhook received',
-  });
+  const stripeEvent = await stripeWebHook(req);
+  return stripeEvent;
 }
 const stripeWebHook = async (req: NextRequest) => {
   let stripeEvent: Stripe.Event;

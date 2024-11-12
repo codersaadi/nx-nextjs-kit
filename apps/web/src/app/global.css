@@ -71,3 +71,100 @@
     font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 }
+/* Typography improvements */
+.prose {
+  @apply max-w-none;
+}
+
+.prose h1 {
+  @apply text-4xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 mb-8 scroll-m-20;
+}
+
+.prose h2 {
+  @apply text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 mt-10 mb-4 scroll-m-20 border-b pb-2;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 mt-8 mb-4 scroll-m-20;
+}
+
+.prose h4 {
+  @apply text-lg font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 mt-8 mb-4 scroll-m-20;
+}
+
+.prose p {
+  @apply leading-7 text-zinc-700 dark:text-zinc-300 mb-4;
+}
+
+.prose ul {
+  @apply my-6 ml-6 list-disc;
+}
+
+.prose ol {
+  @apply my-6 ml-6 list-decimal;
+}
+
+.prose li {
+  @apply mt-2 text-zinc-700 dark:text-zinc-300;
+}
+
+.prose blockquote {
+  @apply mt-6 border-l-4 border-zinc-300 dark:border-zinc-700 pl-6 italic text-zinc-800 dark:text-zinc-200;
+}
+
+.prose img {
+  @apply rounded-xl p-1 mx-auto border bg-neutral-800 shadow-lg  border-zinc-200 dark:border-zinc-700;
+}
+
+.prose hr {
+  @apply my-8 border-zinc-200 dark:border-zinc-800;
+}
+
+/* Code block improvements */
+.prose pre {
+  @apply p-4  rounded-xl bg-zinc-900 dark:bg-black/75 my-6 overflow-x-auto border border-zinc-200 dark:border-zinc-800;
+}
+
+.prose code {
+  @apply px-1.5 py-0.5 text-sm font-mono text-zinc-900 dark:text-zinc-100;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-zinc-200 dark:text-zinc-200;
+}
+
+/* Code title styles */
+.rehype-code-title {
+  @apply px-4 py-2 font-mono text-sm font-semibold text-zinc-200 bg-zinc-800 dark:bg-black/90 rounded-t-lg border border-zinc-700;
+}
+
+.rehype-code-title + pre {
+  @apply mt-0 rounded-t-none;
+}
+
+/* Inline code improvements
+:not(pre) > code {
+  @apply before:content-[''] after:content-[''];
+} */
+
+/* Link styles */
+.prose a {
+  @apply font-medium text-zinc-900 dark:text-zinc-100 underline underline-offset-4 decoration-zinc-800/30 hover:decoration-zinc-800/70 dark:decoration-zinc-200/30 dark:hover:decoration-zinc-200/70;
+}
+
+/* Table styles */
+.prose table {
+  @apply w-full border-collapse text-sm my-8;
+}
+
+.prose thead {
+  @apply border-b border-zinc-300 dark:border-zinc-700;
+}
+
+.prose th {
+  @apply px-4 py-2 text-left font-medium text-zinc-900 dark:text-zinc-100;
+}
+
+.prose td {
+  @apply px-4 py-2 border-b border-zinc-200 dark:border-zinc-800;
+}

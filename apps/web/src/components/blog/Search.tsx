@@ -21,11 +21,11 @@ export function Search({ posts }: SearchProps) {
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="group flex items-center gap-2 rounded-full bg-zinc-800/50 px-4 py-2 text-sm text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
+        className="group flex items-center gap-2 rounded-full bg-background px-4 py-2 text-sm text-zinc-400 transition-colors "
       >
         <SearchIcon className="h-4 w-4" />
         <span>Search posts...</span>
-        <kbd className="hidden rounded bg-zinc-700 px-2 py-0.5 text-xs font-light text-zinc-400 sm:inline-block">
+        <kbd className="hidden rounded bg-gray-300 dark:bg-neutral-700 px-2 py-0.5 text-xs font-light dark:text-zinc-400 text-zinc-800 sm:inline-block">
           ⌘K
         </kbd>
       </button>
@@ -40,7 +40,7 @@ export function Search({ posts }: SearchProps) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={() => setIsOpen(false)}
-              className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+              className="absolute inset-0 bg-gray-200/20 dark:bg-black/60 backdrop-blur-sm"
             />
 
             {/* Modal */}
@@ -50,24 +50,24 @@ export function Search({ posts }: SearchProps) {
               exit={{ opacity: 0, scale: 0.95 }}
               className="relative mx-auto mt-20 max-w-xl"
             >
-              <div className="overflow-hidden rounded-2xl bg-zinc-900 shadow-2xl ring-1 ring-zinc-800">
+              <div className="overflow-hidden rounded-2xl bg-white dark:bg-zinc-900 shadow-2xl ring-1 ring-zinc-200 dark:ring-zinc-800">
                 {/* Search Input */}
-                <div className="flex items-center border-b border-zinc-800 px-4">
-                  <SearchIcon className="h-5 w-5 text-zinc-500" />
+                <div className="flex items-center border-b border-zinc-200 dark:border-zinc-800 px-4">
+                  <SearchIcon className="h-5 w-5 text-zinc-400 dark:text-zinc-500" />
                   <input
                     type="text"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     placeholder="Search posts..."
-                    className="flex-1 bg-transparent px-4 py-4 text-sm text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
+                    className="flex-1 bg-transparent px-4 py-4 text-sm text-zinc-900 dark:text-zinc-100 placeholder:text-zinc-500 focus:outline-none"
                   />
                   {query && (
                     <button
                       type="button"
                       onClick={() => setQuery('')}
-                      className="rounded p-1 hover:bg-zinc-800"
+                      className="rounded p-1 hover:bg-zinc-100 dark:hover:bg-zinc-800"
                     >
-                      <X className="h-4 w-4 text-zinc-500" />
+                      <X className="h-4 w-4 text-zinc-400 dark:text-zinc-500" />
                     </button>
                   )}
                 </div>
@@ -81,7 +81,7 @@ export function Search({ posts }: SearchProps) {
                           key={post.slug}
                           href={`/blog/${post.slug}`}
                           onClick={() => setIsOpen(false)}
-                          className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-zinc-800/50"
+                          className="group flex items-center gap-4 rounded-lg p-3 transition-colors hover:bg-zinc-100 dark:hover:bg-zinc-800/50"
                         >
                           {post.image && (
                             <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-lg">
@@ -94,40 +94,44 @@ export function Search({ posts }: SearchProps) {
                             </div>
                           )}
                           <div className="flex-1 overflow-hidden">
-                            <h3 className="truncate text-sm font-medium text-zinc-100 group-hover:text-blue-400">
+                            <h3 className="truncate text-sm font-medium text-zinc-900 dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400">
                               {post.title}
                             </h3>
-                            <div className="mt-1 flex items-center gap-3 text-xs text-zinc-500">
+                            <div className="mt-1 flex items-center gap-3 text-xs text-zinc-500 dark:text-zinc-400">
                               <span className="flex items-center gap-1">
                                 <Calendar className="h-3 w-3" />
                                 {format(new Date(post.date), 'MMM d, yyyy')}
                               </span>
                               {post.categories?.[0] && (
-                                <span className="rounded-full bg-zinc-800 px-2 py-0.5">
+                                <span className="rounded-full bg-white dark:bg-zinc-800 px-2 py-0.5">
                                   {post.categories[0]}
                                 </span>
                               )}
                             </div>
                           </div>
-                          <ArrowRight className="h-4 w-4 text-zinc-500 transition-transform group-hover:translate-x-1 group-hover:text-blue-400" />
+                          <ArrowRight className="h-4 w-4 text-zinc-400 dark:text-zinc-500 transition-transform group-hover:translate-x-1 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
                         </Link>
                       ))}
                     </div>
                   ) : query ? (
-                    <div className="p-6 text-center text-sm text-zinc-500">
+                    <div className="p-6 text-center text-sm text-zinc-500 dark:text-zinc-400">
                       No posts found for "{query}"
                     </div>
                   ) : null}
                 </div>
 
                 {/* Search Tips */}
-                <div className="border-t border-zinc-800 p-4">
-                  <div className="flex items-center justify-between text-xs text-zinc-500">
+                <div className="border-t border-zinc-200 dark:border-zinc-800 p-4">
+                  <div className="flex items-center justify-between text-xs text-zinc-500 dark:text-zinc-400">
                     <div>
-                      <span className="font-medium text-zinc-400">Tip:</span>{' '}
+                      <span className="font-medium text-zinc-700 dark:text-zinc-300">
+                        Tip:
+                      </span>{' '}
                       Search by title, description, categories, or tags
                     </div>
-                    <kbd className="rounded bg-zinc-800 px-2 py-0.5">ESC</kbd>
+                    <kbd className="rounded bg-zinc-100 dark:bg-zinc-800 px-2 py-0.5">
+                      ESC
+                    </kbd>
                   </div>
                 </div>
               </div>

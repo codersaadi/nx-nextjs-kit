@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { ArrowLeft, Calendar, Clock, Tag } from 'lucide-react';
 import { RelatedPosts } from '@web/components/blog/RelatedPosts';
 import MdxContent from '@web/components/blog/RenderMdx';
+import content_style from '@web/app/blog.module.css';
 interface PromiseParams<T> {
   params: Promise<T>;
 }
@@ -35,19 +36,19 @@ export default async function BlogPost({
   const post = getPost(resolvedParams.slug);
 
   return (
-    <div className="relative min-h-screen  dark">
+    <div className="relative min-h-screen bg-white dark:bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="mx-auto max-w-2xl">
           {/* Back button */}
           <Link
             href="/blog"
-            className="group inline-flex items-center text-sm text-zinc-400 hover:text-zinc-100 mb-8"
+            className="group inline-flex items-center text-sm text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 mb-8"
           >
             <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
             Back to blog
           </Link>
 
-          <article className="prose prose-invert  max-w-none">
+          <article className="prose dark:prose-invert max-w-none">
             {/* Post header */}
             <header className="mb-12 not-prose">
               {post.image && (
@@ -61,11 +62,11 @@ export default async function BlogPost({
                 </div>
               )}
 
-              <h1 className="text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
+              <h1 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 sm:text-4xl">
                 {post.title}
               </h1>
 
-              <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-400">
+              <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-zinc-600 dark:text-zinc-400">
                 <div className="flex items-center gap-2">
                   <Calendar className="h-4 w-4" />
                   <time dateTime={post.date}>
@@ -86,7 +87,7 @@ export default async function BlogPost({
                     {post.categories.map((category) => (
                       <span
                         key={category}
-                        className="inline-flex items-center rounded-full bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-400 ring-1 ring-inset ring-blue-500/20"
+                        className="inline-flex items-center rounded-full bg-blue-50 dark:bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-700 dark:text-blue-400 ring-1 ring-inset ring-blue-700/10 dark:ring-blue-500/20"
                       >
                         {category}
                       </span>
@@ -99,7 +100,7 @@ export default async function BlogPost({
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center rounded-full bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-400"
+                        className="inline-flex items-center rounded-full bg-zinc-100 dark:bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-600 dark:text-zinc-400"
                       >
                         <Tag className="mr-1.5 h-3 w-3" />
                         {tag}
@@ -111,7 +112,7 @@ export default async function BlogPost({
             </header>
 
             {/* Post content */}
-            <div className="mt-8">
+            <div className="mt-8 text-zinc-900 dark:text-zinc-100">
               <MdxContent code={post.body.code} />
             </div>
           </article>

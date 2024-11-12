@@ -33,24 +33,24 @@ export default function RenderBlog({ posts }: { posts: Blog[] }) {
       {posts.map((post) => (
         <motion.div key={post.slug} variants={item} className="group relative">
           <Link href={`/blog/${post.slug}`}>
-            <article className="relative max-w-md mx-auto flex flex-col h-full overflow-hidden rounded-2xl transition-all duration-300  hover:border-neutral-700 hover:bg-neutral-800/50 hover:shadow-2xl hover:shadow-neutral-900/50">
+            <article className="relative max-w-md mx-auto flex flex-col h-full overflow-hidden rounded-2xl transition-all duration-300 bg-white dark:bg-transparent hover:bg-zinc-50 dark:hover:bg-neutral-800/50 hover:shadow-lg dark:hover:shadow-2xl dark:hover:shadow-neutral-900/50">
               {post.image && (
-                <div className="relative pt-1 overflow-hidden rounded-2xl aspect-video my-auto w-full mx-auto bg-neutral-800/50 group-hover:scale-105 transition-all duration-300 ">
+                <div className="relative pt-1 overflow-hidden rounded-2xl aspect-video my-auto w-full mx-auto bg-zinc-100 dark:bg-neutral-800/50 group-hover:scale-105 transition-all duration-300">
                   <Image
                     src={post.image}
                     alt={post.title}
                     fill
-                    className="transition duration-300 blur-0  object-cover object-top  rounded-lg "
+                    className="transition duration-300 blur-0 object-cover object-top rounded-lg"
                   />
                 </div>
               )}
               <div className="flex items-center flex-wrap justify-end w-full">
                 {post.categories && post.categories.length > 0 && (
-                  <div className="flex flex-wrap pt-3   justify-end pr-3 gap-2 ">
+                  <div className="flex flex-wrap pt-3 justify-end pr-3 gap-2">
                     {post.categories.map((cat) => (
                       <span
                         key={cat}
-                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-500/10 text-blue-400"
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400"
                       >
                         {cat}
                       </span>
@@ -59,11 +59,11 @@ export default function RenderBlog({ posts }: { posts: Blog[] }) {
                 )}
 
                 {post.tags && post.tags.length > 0 && (
-                  <div className="flex flex-wrap pt-3 justify-end pr-3 gap-2 ">
+                  <div className="flex flex-wrap pt-3 justify-end pr-3 gap-2">
                     {post.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-neutral-500/10 text-neutral-400"
+                        className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-zinc-100 dark:bg-neutral-500/10 text-zinc-600 dark:text-neutral-400"
                       >
                         <Tag className="mr-1.5 h-3 w-3" /> {tag}
                       </span>
@@ -73,38 +73,37 @@ export default function RenderBlog({ posts }: { posts: Blog[] }) {
               </div>
 
               <div className="px-6 pt-2 pb-5">
-                {/* Title & Description */}
                 <div className="flex-1">
-                  <h2 className="text-xl font-semibold text-neutral-100 group-hover:text-blue-400 transition-colors duration-300">
+                  <h2 className="text-xl font-semibold text-zinc-900 dark:text-neutral-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
                     {post.title}
                   </h2>
-                  <p className="mt-4 text-md leading-6 text-neutral-400">
+                  <p className="mt-4 text-md leading-6 text-zinc-600 dark:text-neutral-400">
                     {post.description}
                   </p>
                 </div>
-                {/* Category Tags */}
 
-                {/* Metadata Footer */}
                 <div className="mt-6 flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <time
                       dateTime={post.date}
-                      className="text-sm text-neutral-500"
+                      className="text-sm text-zinc-500 dark:text-neutral-500"
                     >
                       {format(new Date(post.date), 'MMM d, yyyy')}
                     </time>
-                    <span className="text-neutral-600">•</span>
-                    <span className="text-sm text-neutral-500">
+                    <span className="text-zinc-300 dark:text-neutral-600">
+                      •
+                    </span>
+                    <span className="text-sm text-zinc-500 dark:text-neutral-500">
                       {post.readingTime?.text || '5 min read'}
                     </span>
                   </div>
 
-                  <ArrowUpRight className="h-5 w-5 text-neutral-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-blue-400" />
+                  <ArrowUpRight className="h-5 w-5 text-zinc-400 dark:text-neutral-500 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1 group-hover:text-blue-600 dark:group-hover:text-blue-400" />
                 </div>
 
                 {/* Hover Effects */}
-                <div className="absolute inset-0 rounded-2xl transition duration-300 group-hover:bg-gradient-to-t group-hover:from-blue-500/5 group-hover:to-transparent" />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-neutral-800 group-hover:ring-neutral-700 transition duration-300" />
+                <div className="absolute inset-0 rounded-2xl transition duration-300 group-hover:bg-gradient-to-t group-hover:from-blue-50/50 dark:group-hover:from-blue-500/5 group-hover:to-transparent" />
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-200 dark:ring-neutral-800 group-hover:ring-zinc-300 dark:group-hover:ring-neutral-700 transition duration-300" />
               </div>
             </article>
           </Link>

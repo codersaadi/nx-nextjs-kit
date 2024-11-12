@@ -9,7 +9,7 @@ export default function RootProvider({
 }) {
   return (
     <ShadCnProvider>
-      <div className="absolute top-3 right-3">
+      <div className="absolute top-3 right-3 z-50">
         <ThemeSwitch />
       </div>
       {children}

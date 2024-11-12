@@ -13,6 +13,13 @@
         "command": "concurrently \"contentlayer2 dev\" \"next dev\""
       }
     },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "cwd": "apps/web",
+        "command": "concurrently \"contentlayer2 build\" \"next build\""
+      }
+    },
     "db:clear": {
       "executor": "nx:run-commands",
       "options": {

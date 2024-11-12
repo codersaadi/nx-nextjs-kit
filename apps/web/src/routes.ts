@@ -2,7 +2,7 @@
  * Routes accessible to the public are listed here in an array
  * @type {string[]}
  */
-export const publicRoutes: string[] = ['/home', '/', '/changelog'];
+export const publicRoutes: string[] = ['/home', '/', '/changelog', '/blog'];
 
 /**
  * Routes for authentication are listed here in an array

@@ -32,15 +32,15 @@ export default async function BlogPage({
   );
 
   return (
-    <div className="relative min-h-screen bg-neutral-950">
+    <div className="relative min-h-screen bg-background ">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
         {/* Header with Search */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
           <div className="max-w-2xl">
-            <h1 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl">
+            <h1 className="text-4xl font-bold tracking-tight text-gray-800  dark:text-zinc-100 sm:text-5xl">
               Blog
             </h1>
-            <p className="mt-4 text-zinc-400 text-lg">
+            <p className="mt-4 dark:text-zinc-400 text-zinc-800 text-lg">
               Thoughts on programming, design, and building digital products.
             </p>
           </div>

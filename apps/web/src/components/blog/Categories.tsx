@@ -17,9 +17,9 @@ export function Categories({ categories }: CategoriesProps) {
     <div className="relative">
       {/* Category Stats */}
       <div className="mb-6 flex items-center justify-between">
-        <h2 className="text-lg font-medium text-zinc-200">
+        <h2 className="text-lg font-medium text-zinc-900 dark:text-zinc-200">
           Categories
-          <span className="ml-2 text-sm text-zinc-400">
+          <span className="ml-2 text-sm text-zinc-500 dark:text-zinc-400">
             ({categories.length})
           </span>
         </h2>
@@ -31,7 +31,9 @@ export function Categories({ categories }: CategoriesProps) {
           <div
             className={cn(
               'relative z-10 rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
-              !category ? 'text-zinc-100' : 'text-zinc-400 hover:text-zinc-100'
+              !category
+                ? 'text-zinc-100'
+                : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
             )}
           >
             All
@@ -39,7 +41,7 @@ export function Categories({ categories }: CategoriesProps) {
           {!category && (
             <motion.div
               layoutId="category-bg"
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/80 to-blue-600/80 blur-sm"
+              className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/80 to-blue-600/80 dark:blur-sm"
             />
           )}
         </Link>
@@ -55,7 +57,7 @@ export function Categories({ categories }: CategoriesProps) {
                 'relative z-10 rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
                 category === cat
                   ? 'text-zinc-100'
-                  : 'text-zinc-400 hover:text-zinc-100'
+                  : 'text-zinc-600 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100'
               )}
             >
               {cat}
@@ -63,7 +65,7 @@ export function Categories({ categories }: CategoriesProps) {
             {category === cat && (
               <motion.div
                 layoutId="category-bg"
-                className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/80 to-blue-600/80 blur-sm"
+                className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500/80 to-blue-600/80 dark:blur-sm"
               />
             )}
           </Link>
@@ -75,12 +77,12 @@ export function Categories({ categories }: CategoriesProps) {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mt-8 rounded-lg border border-zinc-800/50 bg-zinc-900/50 p-4"
+          className="mt-8 rounded-lg border border-zinc-200/50 dark:border-zinc-800/50 bg-zinc-50/50 dark:bg-zinc-900/50 p-4"
         >
-          <h3 className="text-sm font-medium text-zinc-200">
+          <h3 className="text-sm font-medium text-zinc-700 dark:text-zinc-200">
             Showing posts in category:
           </h3>
-          <p className="mt-1 text-2xl font-semibold text-blue-400">
+          <p className="mt-1 text-2xl font-semibold text-blue-600 dark:text-blue-400">
             {category}
           </p>
         </motion.div>
