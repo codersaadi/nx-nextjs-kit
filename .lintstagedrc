@@ -1,11 +1,12 @@
 {
     "*.ts": [
-	"nx affected:lint --fix --files"
+      "nx affected:lint --fix --files --ignore-pattern='apps/web/.contentlayer/**'"
     ],
     "*": [
-        "npx nx format:write --files"
+      "npx nx format:write --files"
     ],
     "*.scss": [
-	"npx stylelint --fix"
+      "npx stylelint --fix"
     ]
-}
+  }
+  

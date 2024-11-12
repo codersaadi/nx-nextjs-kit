@@ -17,6 +17,13 @@ const stripeWebhookEvents = new Set([
 ]);
 
 export async function POST(req: NextRequest) {
+  // const stripeEvent = await stripeWebHook(req);
+  // return stripeEvent;
+  return NextResponse.json({
+    message: 'Webhook received',
+  });
+}
+const stripeWebHook = async (req: NextRequest) => {
   let stripeEvent: Stripe.Event;
   const body = await req.text();
   const sig = headers().get('Stripe-Signature');
@@ -95,4 +102,4 @@ export async function POST(req: NextRequest) {
       status: 200,
     }
   );
-}
+};
