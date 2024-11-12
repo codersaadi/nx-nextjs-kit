@@ -40,8 +40,12 @@ export function AnimatedContainer({
     const duration = anim.duration ?? 700;
     const delay = anim.delay ?? 0;
 
-    // Base transition class
-    classes.push(`transition-all duration-[${duration}ms] delay-[${delay}ms]`);
+    // Base transition class using style property instead
+    classes.push('transition-all');
+    const style = {
+      transitionDuration: `${duration}ms`,
+      transitionDelay: `${delay}ms`,
+    };
 
     if (!visible) {
       // Initial state classes
@@ -62,7 +66,7 @@ export function AnimatedContainer({
       if (anim.slide) classes.push('translate-x-0 translate-y-0');
     }
 
-    return classes;
+    return { classes, style };
   };
 
   const animationClasses = animations.flatMap((anim) =>
@@ -72,7 +76,8 @@ export function AnimatedContainer({
   return (
     <div
       ref={elementRef}
-      className={cn(animationClasses, className)}
+      className={cn(animationClasses.map((a) => a.classes).flat(), className)}
+      style={Object.assign({}, ...animationClasses.map((a) => a.style))}
       {...props}
     >
       {children}
