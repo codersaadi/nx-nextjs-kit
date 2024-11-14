@@ -1,3 +1,5 @@
+export { AnimatedLoading } from './animated-loading';
+
 export { AnimatedSearch } from './animated-search';
 
 export { ScrollHighlight } from './scroll-highlight';
