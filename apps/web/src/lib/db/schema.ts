@@ -128,33 +128,6 @@ export const profiles = pgTable('profile', {
 });
 
 /**
- * Organization Schema
- */
-
-/**
- * Multi-tenacy support
- */
-export const organizationTypes = [
-  'individual',
-  'startup',
-  'nonprofit',
-  'LLC',
-  'corporation',
-  'partnership',
-] as const;
-
-export const organizationTypeEnum = pgEnum(
-  'organizationType',
-  organizationTypes
-);
-export const organizationStatusEnum = pgEnum('organization_status', [
-  'active',
-  'inactive',
-  'pending',
-  'suspended',
-]);
-
-/**
  * exporting types ,from this file , this way , you will get better grip on you schema
  */
 export type User = typeof users.$inferSelect;
