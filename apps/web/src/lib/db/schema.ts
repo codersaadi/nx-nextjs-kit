@@ -11,6 +11,16 @@ import {
 import type { ProviderType } from 'next-auth/providers';
 export const rolesEnumArray = ['user', 'admin', 'member'] as const;
 export const userRole = pgEnum('role', rolesEnumArray);
+export type AccountStatus = (typeof accountStatusArray)[number];
+export const accountStatusArray = [
+  'suspended',
+  'disabled',
+  'active',
+  'onboarding',
+] as const;
+export const accountStatus = pgEnum('accountStatus', accountStatusArray);
+const DEFAULT_ACCOUNT_STATUS: (typeof accountStatusArray)[number] =
+  'onboarding';
 export const users = pgTable('user', {
   id: text('id')
     .primaryKey()
@@ -22,12 +32,12 @@ export const users = pgTable('user', {
   role: userRole('role')
     .notNull()
     .$defaultFn(() => 'user'),
+  status: accountStatus('accountStatus').default(DEFAULT_ACCOUNT_STATUS),
   emailVerified: timestamp('emailVerified', { mode: 'date' }),
   stripeCustomerId: text('stripeCustomerId'),
   image: text('image'),
   createdAt: timestamp('createdAt', { mode: 'date' }).default(sql`now()`),
 });
-
 // Define the accounts table
 export const accounts = pgTable(
   'account',
@@ -46,9 +56,9 @@ export const accounts = pgTable(
     id_token: text('id_token'),
     session_state: text('session_state'),
   },
-  (account) => ({
+  (table) => ({
     compoundKey: primaryKey({
-      columns: [account.provider, account.providerAccountId],
+      columns: [table.provider, table.providerAccountId],
     }),
   })
 );
@@ -96,6 +106,7 @@ export const subscriptions = pgTable('subscriptions', {
   stripePriceId: text('stripePriceId').notNull(),
   stripeCurrentPeriodEnd: timestamp('expires', { mode: 'date' }).notNull(),
 });
+
 /**
  * Any Third Party you will use, it will track your emails,newsletters, and keep a good record of them, yet we are saving it , in case you just want to leave their service or they dumb your data
  */
@@ -115,6 +126,33 @@ export const profiles = pgTable('profile', {
   image: text('image'),
   bio: text('bio').notNull().default(''),
 });
+
+/**
+ * Organization Schema
+ */
+
+/**
+ * Multi-tenacy support
+ */
+export const organizationTypes = [
+  'individual',
+  'startup',
+  'nonprofit',
+  'LLC',
+  'corporation',
+  'partnership',
+] as const;
+
+export const organizationTypeEnum = pgEnum(
+  'organizationType',
+  organizationTypes
+);
+export const organizationStatusEnum = pgEnum('organization_status', [
+  'active',
+  'inactive',
+  'pending',
+  'suspended',
+]);
 
 /**
  * exporting types ,from this file , this way , you will get better grip on you schema

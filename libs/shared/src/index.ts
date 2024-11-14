@@ -8,3 +8,4 @@ export * from './components/date-range-picker';
 export * from './components/table';
 export * from './components/shiny-card';
 export * from './components/animations/animated-loading';
+export * from './components/loader-button';
